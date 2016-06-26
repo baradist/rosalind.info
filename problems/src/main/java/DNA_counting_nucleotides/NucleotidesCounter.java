@@ -18,10 +18,6 @@ public class NucleotidesCounter {
         countSymbols(dataset);
     }
 
-    public void printOutput() {
-        System.out.println(getResult());
-    }
-
     public String getResult() {
         String result = "";
         for (Integer integer : nucleotides.values()) {

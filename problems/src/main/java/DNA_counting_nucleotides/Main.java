@@ -9,6 +9,6 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         NucleotidesCounter counter = new NucleotidesCounter(scanner.next());
-        counter.printOutput();
+        System.out.println(counter.getResult());
     }
 }
