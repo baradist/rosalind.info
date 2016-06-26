@@ -1,2 +1,3 @@
 rootProject.name = 'rosalind'
 include 'bioinf-stronghold'
+include 'algorithmic-heights'
