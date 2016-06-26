@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by 1 on 26.06.2016.
+ * Created by Oleg Grigorjev on 26.06.2016.
  */
 public class Fibonacci {
     private List<Long> numbers;
@@ -17,10 +17,8 @@ public class Fibonacci {
 
     public long getValue(int n) {
         for (int i = numbers.size(); i <= n; i++) {
-            numbers.add(numbers.get(i -1) + numbers.get(i - 2));
+            numbers.add(numbers.get(i - 1) + numbers.get(i - 2));
         }
-//        if (numbers.size() > n) {
-            return numbers.get(n);
-//        }
+        return numbers.get(n);
     }
 }

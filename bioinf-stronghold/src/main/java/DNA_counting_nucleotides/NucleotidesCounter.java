@@ -19,11 +19,12 @@ public class NucleotidesCounter {
     }
 
     public String getResult() {
-        String result = "";
+        StringBuilder result = new StringBuilder();
         for (Integer integer : nucleotides.values()) {
-            result += (integer + " ");
+            result.append(integer + " ");
         }
-        return result.substring(0, result.length() - 1);
+        result.deleteCharAt(result.length() - 1);
+        return  result.toString();
     }
 
     private void countSymbols(String dataset) {
