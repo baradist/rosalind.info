@@ -10,5 +10,6 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         NucleotidesCounter counter = new NucleotidesCounter(scanner.next());
         System.out.println(counter.getResult());
+        scanner.close();
     }
 }

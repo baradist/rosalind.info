@@ -10,5 +10,6 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         Transcriber transcriber = new Transcriber(scanner.next());
         System.out.println(transcriber.getValue());
+        scanner.close();
     }
 }

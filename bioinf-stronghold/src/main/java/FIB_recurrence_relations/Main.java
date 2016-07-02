@@ -10,5 +10,6 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         RabbitsCounter counter = new RabbitsCounter();
         System.out.println(counter.count(scanner.nextInt(), scanner.nextInt()));
+        scanner.close();
     }
 }
