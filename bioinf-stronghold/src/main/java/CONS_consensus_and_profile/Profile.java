@@ -1,23 +1,23 @@
 package CONS_consensus_and_profile;
 
+import common.FastaItem;
 import reader.TextReader;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.Scanner;
 
 /**
  * Created by Oleg Grigoryev on 07.07.2016.
  */
 public class Profile {
-    private List<String> strings;
+    private List<FastaItem> items;
     private String consensus;
     private List<MatrixColumn> matrix;
 
     public Profile() {
-        this.strings = new ArrayList<>();
+        this.items = new ArrayList<>();
     }
 
     public String getConsensus() {
@@ -47,28 +47,28 @@ public class Profile {
 
     public void readFastaFile(String fileName) {
         try {
-            setStrings(TextReader.readFastaFile(new FileReader(fileName)).values());
+            setItems(TextReader.readFastaFile(new FileReader(fileName)).values());
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
     }
 
-    public void setStrings(Collection<String> strings) {
-        this.strings = new ArrayList<>(strings);
+    public void setItems(Collection<FastaItem> items) {
+        this.items = new ArrayList<>(items);
     }
 
     public void evaluate() {
-        if (strings.size() == 0) {
+        if (items.size() == 0) {
             return;
         }
         StringBuilder sb = new StringBuilder();
-        int length = strings.get(0).length();
+        int length = items.get(0).getValue().length();
         matrix = new ArrayList<>(length);
         for (int i = 0; i < length; i++) {
             MatrixColumn column = new MatrixColumn();
-            for (String string : strings) {
-                switch (string.charAt(i)) {
+            for (FastaItem item : items) {
+                switch (item.getValue().charAt(i)) {
                     case 'A':
                         column.countA++;
                         break;

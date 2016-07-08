@@ -1,5 +1,7 @@
 package reader;
 
+import common.FastaItem;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.Reader;
@@ -17,8 +19,8 @@ public class TextReader {
         return new String(Files.readAllBytes(Paths.get("bioinf-stronghold/in/" + fileName)));
     }
 
-    public static Map<String, String> readFastaFile(Reader reader) {
-        Map<String, String> map = new HashMap<>();
+    public static Map<String, FastaItem> readFastaFile(Reader reader) {
+        Map<String, FastaItem> map = new HashMap<>();
         try (Scanner scanner = new Scanner(new BufferedReader(reader))) {
             StringBuilder sb = new StringBuilder();
             String key = "";
@@ -26,7 +28,7 @@ public class TextReader {
                 String next = scanner.next();
                 if (next.charAt(0) == '>') {
                     if (sb.length() > 0) {
-                        map.put(key, sb.toString());
+                        map.put(key, new FastaItem(key, sb.toString()));
                         sb = new StringBuilder();
                     }
                     key = next.substring(1);
@@ -34,7 +36,7 @@ public class TextReader {
                     sb.append(next);
                 }
             }
-            map.put(key, sb.toString());
+            map.put(key, new FastaItem(key, sb.toString()));
         }
         return map;
     }

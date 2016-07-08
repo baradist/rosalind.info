@@ -1,5 +1,7 @@
 package GC_computing_gc_content;
 
+import common.FastaItem;
+
 import java.util.*;
 
 /**

@@ -1,4 +1,4 @@
-package GC_computing_gc_content;
+package common;
 
 import lombok.Data;
 

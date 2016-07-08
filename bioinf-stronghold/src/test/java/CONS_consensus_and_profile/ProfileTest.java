@@ -3,9 +3,7 @@ package CONS_consensus_and_profile;
 import org.junit.Test;
 import reader.TextReader;
 
-import java.io.BufferedReader;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.StringReader;
 
 import static org.hamcrest.core.Is.is;
@@ -32,7 +30,7 @@ public class ProfileTest {
                 ">Rosalind_7\n" +
                 "ATGGCACT";
         Profile profile = new Profile();
-        profile.setStrings(TextReader.readFastaFile(new StringReader(text)).values());
+        profile.setItems(TextReader.readFastaFile(new StringReader(text)).values());
         profile.evaluate();
         assertThat(profile.getConsensus(), is("ATGCAACT"));
         assertThat(profile.getMatrix(), is("A: 5 1 0 0 5 5 0 0\n" +
