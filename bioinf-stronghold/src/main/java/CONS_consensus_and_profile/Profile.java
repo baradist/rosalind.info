@@ -1,7 +1,10 @@
 package CONS_consensus_and_profile;
 
+import reader.TextReader;
+
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Scanner;
 
@@ -44,28 +47,15 @@ public class Profile {
 
     public void readFastaFile(String fileName) {
         try {
-            readFastaFile(new FileReader(fileName));
+            setStrings(TextReader.readFastaFile(new FileReader(fileName)).values());
+
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
     }
 
-    public void readFastaFile(Reader reader) {
-        try (Scanner scanner = new Scanner(new BufferedReader(reader))) {
-            StringBuilder sb = new StringBuilder();
-            while (scanner.hasNext()) {
-                String next = scanner.next();
-                if (next.charAt(0) == '>') {
-                    if (sb.length() > 0) {
-                        strings.add(sb.toString());
-                        sb = new StringBuilder();
-                    }
-                } else {
-                    sb.append(next);
-                }
-            }
-            strings.add(sb.toString());
-        }
+    public void setStrings(Collection<String> strings) {
+        this.strings = new ArrayList<>(strings);
     }
 
     public void evaluate() {
