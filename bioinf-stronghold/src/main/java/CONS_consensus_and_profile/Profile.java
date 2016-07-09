@@ -1,7 +1,7 @@
 package CONS_consensus_and_profile;
 
 import common.FastaItem;
-import reader.TextReader;
+import common.Text;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -47,7 +47,7 @@ public class Profile {
 
     public void readFastaFile(String fileName) {
         try {
-            setItems(TextReader.readFastaFile(new FileReader(fileName)).values());
+            setItems(Text.readFastaFile(new FileReader(fileName)).values());
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();

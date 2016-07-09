@@ -1,7 +1,7 @@
 package CONS_consensus_and_profile;
 
 import org.junit.Test;
-import reader.TextReader;
+import common.Text;
 
 import java.io.FileNotFoundException;
 import java.io.StringReader;
@@ -30,7 +30,7 @@ public class ProfileTest {
                 ">Rosalind_7\n" +
                 "ATGGCACT";
         Profile profile = new Profile();
-        profile.setItems(TextReader.readFastaFile(new StringReader(text)).values());
+        profile.setItems(Text.readFastaFile(new StringReader(text)).values());
         profile.evaluate();
         assertThat(profile.getConsensus(), is("ATGCAACT"));
         assertThat(profile.getMatrix(), is("A: 5 1 0 0 5 5 0 0\n" +

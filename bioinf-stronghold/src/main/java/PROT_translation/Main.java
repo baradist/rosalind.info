@@ -1,6 +1,6 @@
 package PROT_translation;
 
-import reader.TextReader;
+import common.Text;
 import java.io.IOException;
 
 /**
@@ -9,6 +9,6 @@ import java.io.IOException;
 public class Main {
     public static void main(String[] args) throws IOException {
         Translator translator = new Translator("bioinf-stronghold/src/main/resources/PROT_translation/rna_to_protein.txt");
-        System.out.println(translator.getProtein((TextReader.read("rosalind_prot.txt"))));
+        System.out.println(translator.getProtein((Text.read("rosalind_prot.txt"))));
     }
 }

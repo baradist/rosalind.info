@@ -3,7 +3,7 @@ package common;
 import lombok.Data;
 
 /**
- * Created by 1 on 29.06.2016.
+ * Created by Oleg Grigoryev on 29.06.2016.
  */
 @Data
 public class FastaItem {

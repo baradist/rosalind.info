@@ -1,7 +1,6 @@
 package GC_computing_gc_content;
 
-import REVC_reverse_complementing.ReverseComplementer;
-import reader.TextReader;
+import common.Text;
 
 import java.io.IOException;
 
@@ -10,7 +9,7 @@ import java.io.IOException;
  */
 public class Main {
     public static void main(String[] args) throws IOException {
-        GcContentComputer computer = new GcContentComputer(TextReader.read("rosalind_gc.txt"));
+        GcContentComputer computer = new GcContentComputer(Text.read("rosalind_gc.txt"));
         System.out.println(computer.getOutput());
     }
 }
