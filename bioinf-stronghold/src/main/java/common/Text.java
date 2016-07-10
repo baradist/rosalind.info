@@ -14,12 +14,12 @@ import java.util.Scanner;
  */
 public class Text {
     public static String read(String fileName) throws IOException {
-        return new String(Files.readAllBytes(Paths.get("bioinf-stronghold/in/" + fileName)));
+        return new String(Files.readAllBytes(Paths.get(fileName)));
     }
 
     public static void write(String fileName, String value) {
         try {
-            write("bioinf-stronghold/out/" + fileName, value, StandardCharsets.UTF_16);
+            write(fileName, value, StandardCharsets.UTF_16);
         } catch (IOException e) {
             e.printStackTrace();
         }

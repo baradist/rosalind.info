@@ -9,7 +9,7 @@ import java.io.IOException;
  */
 public class Main {
     public static void main(String[] args) throws IOException {
-        ReverseComplementer complementer = new ReverseComplementer(Text.read("rosalind_revc.txt"));
+        ReverseComplementer complementer = new ReverseComplementer(Text.read("bioinf-stronghold/in/rosalind_revc.txt"));
         System.out.println(complementer.getResult());
     }
 }

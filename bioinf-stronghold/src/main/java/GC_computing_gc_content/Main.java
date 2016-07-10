@@ -9,7 +9,7 @@ import java.io.IOException;
  */
 public class Main {
     public static void main(String[] args) throws IOException {
-        GcContentComputer computer = new GcContentComputer(Text.read("rosalind_gc.txt"));
+        GcContentComputer computer = new GcContentComputer(Text.read("bioinf-stronghold/in/rosalind_gc.txt"));
         System.out.println(computer.getOutput());
     }
 }
