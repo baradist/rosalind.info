@@ -1,5 +1,7 @@
 package DNA_counting_nucleotides;
 
+import common.Text;
+
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -19,12 +21,7 @@ public class NucleotidesCounter {
     }
 
     public String getResult() {
-        StringBuilder result = new StringBuilder();
-        for (Integer integer : nucleotides.values()) {
-            result.append(integer + " ");
-        }
-        result.deleteCharAt(result.length() - 1);
-        return  result.toString();
+        return Text.join(nucleotides.values(), " ");
     }
 
     private void countSymbols(String dataset) {

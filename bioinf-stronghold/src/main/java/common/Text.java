@@ -8,6 +8,7 @@ import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.StringJoiner;
 
 /**
  * Created by Oleg Grigorjev on 26.06.2016.
@@ -52,5 +53,11 @@ public class Text {
             map.put(key, new FastaItem(key, sb.toString()));
         }
         return map;
+    }
+
+    public static String join(Iterable iterable, String separator) {
+        StringJoiner sj = new StringJoiner(separator);
+        iterable.forEach(e -> sj.add(e.toString()));
+        return sj.toString();
     }
 }

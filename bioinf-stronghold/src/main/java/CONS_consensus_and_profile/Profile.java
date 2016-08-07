@@ -1,24 +1,17 @@
 package CONS_consensus_and_profile;
 
+import common.FastaHolderAbstract;
 import common.FastaItem;
-import common.Text;
 
-import java.io.*;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 /**
  * Created by Oleg Grigoryev on 07.07.2016.
  */
-public class Profile {
-    private List<FastaItem> items;
+public class Profile extends FastaHolderAbstract {
     private String consensus;
     private List<MatrixColumn> matrix;
-
-    public Profile() {
-        this.items = new ArrayList<>();
-    }
 
     public String getConsensus() {
         return consensus;
@@ -43,19 +36,6 @@ public class Profile {
             sb.append(" ").append(column.countT);
         }
         return sb.toString();
-    }
-
-    public void readFastaFile(String fileName) {
-        try {
-            setItems(Text.readFastaFile(new FileReader(fileName)).values());
-
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void setItems(Collection<FastaItem> items) {
-        this.items = new ArrayList<>(items);
     }
 
     public void evaluate() {

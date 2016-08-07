@@ -1,5 +1,6 @@
 package SUBS_motifs_in_dna;
 
+import common.Text;
 import lombok.Setter;
 
 import java.util.ArrayList;
@@ -28,14 +29,6 @@ public class MotifsFinder {
                 }
             }
         }
-
-        StringBuilder sb = new StringBuilder();
-        for (Integer location : locations) {
-            sb.append(location).append(" ");
-        }
-        if (sb.length() == 0) {
-            return "";
-        }
-        return sb.deleteCharAt(sb.length() - 1).toString();
+        return Text.join(locations, " ");
     }
 }
