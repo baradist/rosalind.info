@@ -1,6 +1,7 @@
 package common;
 
 import java.io.*;
+import java.net.URL;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -33,13 +34,22 @@ public class Text {
         }
     }
 
+    public static Map<String, FastaItem> readFastaFile(URL url) {
+        try (BufferedReader in = new BufferedReader(new InputStreamReader(url.openStream(), "UTF-8"))) {
+            return readFastaFile(in);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return new HashMap<>();
+    }
+
     public static Map<String, FastaItem> readFastaFile(Reader reader) {
         Map<String, FastaItem> map = new HashMap<>();
         try (Scanner scanner = new Scanner(new BufferedReader(reader))) {
             StringBuilder sb = new StringBuilder();
             String key = "";
             while (scanner.hasNext()) {
-                String next = scanner.next();
+                String next = scanner.nextLine();
                 if (next.charAt(0) == '>') {
                     if (sb.length() > 0) {
                         map.put(key, new FastaItem(key, sb.toString()));
