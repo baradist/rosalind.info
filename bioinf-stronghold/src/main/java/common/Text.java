@@ -6,10 +6,8 @@ import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
-import java.util.StringJoiner;
+import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * Created by Oleg Grigorjev on 26.06.2016.
@@ -69,5 +67,26 @@ public class Text {
         StringJoiner sj = new StringJoiner(separator);
         iterable.forEach(e -> sj.add(e.toString()));
         return sj.toString();
+    }
+
+    public static List<String> getStrings(String text) {
+        return Arrays.asList(text.split("\n"));
+    }
+
+    /**
+     * making list of strings
+     * to exit type empty string
+     * @return
+     * @throws IOException
+     */
+    public static List<String> readLinesList() throws IOException {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        List<String> proteins = new ArrayList<>();
+
+        String line = null;
+        while (!(line = reader.readLine()).equals("")) {
+            proteins.add(line);
+        }
+        return proteins;
     }
 }
