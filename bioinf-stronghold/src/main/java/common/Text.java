@@ -6,7 +6,14 @@ import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Properties;
+import java.util.Scanner;
+import java.util.StringJoiner;
 import java.util.stream.Collectors;
 
 /**
@@ -88,5 +95,24 @@ public class Text {
             proteins.add(line);
         }
         return proteins;
+    }
+
+    public static Map<String, String> readRnaToCodonTable() {
+        Properties prop = new Properties();
+        String propFileName = "rna_to_codon.properties";
+        InputStream inputStream;
+        inputStream = Text.class.getClassLoader().getResourceAsStream(propFileName);
+        try {
+            if (inputStream != null) {
+                prop.load(inputStream);
+            } else {
+                throw new FileNotFoundException("property file '" + propFileName + "' not found in the classpath");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Map<String, String> dictionary = prop.entrySet().stream().
+                collect(Collectors.toMap(e -> (String) e.getKey(), e -> (String) e.getValue()));
+        return dictionary;
     }
 }

@@ -35,7 +35,6 @@ public class ProteinMotifFinderTest {
 
         assertEquals(stringListMap, stringListMap1);
         ProteinMotifFinder.print(stringListMap);
-        ProteinMotifFinder.print(stringListMap1);
     }
 
     @Test

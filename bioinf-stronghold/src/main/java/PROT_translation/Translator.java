@@ -1,21 +1,16 @@
 package PROT_translation;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.util.HashMap;
+import common.Text;
+
 import java.util.Map;
-import java.util.Scanner;
 
 /**
  * Created by Oleg Grigorjev on 06.07.2016.
  */
 public class Translator {
     private Map<String, String> dictionary;
-    private String dictionaryFile;
 
-    public Translator(String dictionaryFile) {
-        this.dictionaryFile = dictionaryFile;
+    public Translator() {
         readDictionary();
     }
 
@@ -32,20 +27,6 @@ public class Translator {
     }
 
     private void readDictionary() {
-        try (Scanner scanner = new Scanner(new BufferedReader(new FileReader(dictionaryFile)))) {
-            dictionary = new HashMap<>(20);
-            String key = null;
-            while (scanner.hasNext()) {
-                String next = scanner.next();
-                if (next.length() == 3) {
-                    key = next;
-                } else {
-                    dictionary.put(key, next);
-                }
-            }
-
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
-        }
+        dictionary = Text.readRnaToCodonTable();
     }
 }

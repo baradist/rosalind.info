@@ -12,7 +12,7 @@ public class TranslatorTest {
 
     @Test
     public void testGetProtein() throws Exception {
-        Translator translator = new Translator("src/main/resources/PROT_translation/rna_to_protein.txt");
+        Translator translator = new Translator();
         assertThat(translator.getProtein("AUGGCCAUGGCGCCCAGAACUGAGAUCAAUAGUACCCGUAUUAACGGGUGA"), is("MAMAPRTEINSTRING"));
     }
 }
